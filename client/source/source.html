@@ -1,5 +1,63 @@
 <template name="source">
     <p>source page</p>
 
+    {{> uploadForm}}
+    {{> uploadedFiles}}
+</template>
+
+
+<template name="uploadForm">
+
+    {{#with currentUpload}}
+        Uploading <b>{{file.name}}</b>:
+        <span id="progress">{{progress.get}}%</span>
+    {{else}}
+
+        <label for="fileInput" class="custom-file-upload">
+            <div id="loadImage">
+                <p>Charger une image</p>
+            </div>
+            <input id="fileInput" type="file" multiple/>
+        </label>
+
+        <div id="textInfo">
+            <p><small>
+                Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB
+            </small></p>
+            <p><small>
+                Vous pouvez charger une image au format <code>jpeg</code> ou <code>png</code> , elle ne doit pas dépasser 10mega.
+            </small></p>
+
+        </div>
+
+    {{/with}}
+
+</template>
+
+
+<template name="uploadedFiles">
+
+    <div id="mediaCollection">
+        {{#if uploadedFiles.count}}
+
+        {{#each file in uploadedFiles.each}}
+        <div class="mediaBloc">
+            <img src="{{file.link}}" target="_blank" width="150" height="100" data-id={{file._id}}>
+
+
+        <div class="nameBloc">
+            <p>{{file.name}}</p>
+        </div>
+
+        
+    </div>
+    {{/each}}
+
+    {{else}}
+    <div>No files uploaded, yet</div>
+    {{/if}}
+    </div>
+
+
 
 </template>
