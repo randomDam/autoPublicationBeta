@@ -3,11 +3,35 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
-  {{> info}}
+  <div id="menu">
+      <div class="bt" id="source">
+          <p>source page</p>
+      </div>
+      <div class="bt" id="generation">
+          <p>generation page</p>
+      </div>
+  </div>
+
+  <div id="main">
+
+    {{#if getMode "source"}}
+        {{> source}}
+    {{/if}}
+
+    {{#if getMode "generation"}}
+        {{> generation}}
+    {{/if}}
+  </div>
+
+
+
 </body>
+
+
+
+
+
 
 <template name="hello">
   <button>Click Me</button>
