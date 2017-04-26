@@ -1,0 +1,23 @@
+#textInfo {
+  font-family: cursive;
+}
+
+#loadImage {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.mediaBloc {
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+    border-style: solid;
+    border-color: purple;
+    border-width: thick;
+    overflow: hidden;
+}
+
+.mediaBloc image{
+  width: 800px;
+  height: 250px;
+}

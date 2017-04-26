@@ -22,9 +22,6 @@
 
         <div id="textInfo">
             <p><small>
-                Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB
-            </small></p>
-            <p><small>
                 Vous pouvez charger une image au format <code>jpeg</code> ou <code>png</code> , elle ne doit pas dépasser 10mega.
             </small></p>
 
@@ -42,14 +39,14 @@
 
         {{#each file in uploadedFiles.each}}
         <div class="mediaBloc">
-            <img src="{{file.link}}" target="_blank" width="150" height="100" data-id={{file._id}}>
+            <img src="{{file.link}}" target="_blank" data-id={{file._id}}>
 
 
         <div class="nameBloc">
             <p>{{file.name}}</p>
         </div>
 
-        
+
     </div>
     {{/each}}
 
