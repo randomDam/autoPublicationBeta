@@ -1,23 +1,76 @@
 #textInfo {
-  font-family: cursive;
+    font-family: cursive;
 }
 
 #loadImage {
-  font-weight: bold;
-  font-size: 25px;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .mediaBloc {
     width: 100px;
     height: 100px;
-    margin: 30px;
+    margin: 3px;
+    float: left;
     border-style: solid;
     border-color: purple;
-    border-width: thick;
+    border-width: thin;
     overflow: hidden;
 }
 
-.mediaBloc image{
-  width: 800px;
-  height: 250px;
+.mediaNumber {
+    position: relative;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(150,150,150,0.1);
+    font-family: sans-serif;
+    font-size: 0.9em;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 5px;
+
+    width: 16px;
+    height: 20px;
+}
+
+.mediaBloc img {
+    position: relative;
+    top: -20px;
+    left: 0px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.mediaBloc:hover{
+    border-color: rgb(0, 0, 200);
+    border-style: dashed;
+}
+
+#mediaCollection {
+    background-color: rgb(200, 200, 200);
+    left: 10px;
+    width: calc(100% - 30px);
+    height: auto;
+    min-height: 600px;
+    padding: 5px;
+    margin: 0px;
+}
+
+.mediaCollection:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.mediaBloc.is-dragging, .mediaBloc.is-positioning-post-drag {
+    background: #C90;
+    z-index: 2;
+}
+
+.packery-drop-placeholder {
+    outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+    outline-offset: -6px;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
 }

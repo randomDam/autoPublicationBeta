@@ -1,6 +1,4 @@
 <template name="source">
-    <p>source page</p>
-
     {{> uploadForm}}
     {{> uploadedFiles}}
 </template>
@@ -35,26 +33,24 @@
 <template name="uploadedFiles">
 
     <div id="mediaCollection">
-        {{#if uploadedFiles.count}}
+        {{#if uploadedFilesImages.count}}
+            {{#each file in uploadedFilesImages.each}}
+                <div class="mediaBloc">
+                    <div class="mediaNumber">
+                        0
+                    </div>
 
-        {{#each file in uploadedFiles.each}}
-        <div class="mediaBloc">
-            <img src="{{file.link}}" target="_blank" data-id={{file._id}}>
+                    <img src="{{file.link}}" target="_blank" data-id={{file._id}}>
 
-
-        <div class="nameBloc">
-            <p>{{file.name}}</p>
-        </div>
-
-
-    </div>
-    {{/each}}
-
+                    <div class="nameBloc">
+                        <p>{{file.name}}</p>
+                    </div>
+                </div>
+                {{doneTrigger}}
+            {{/each}}
     {{else}}
-    <div>No files uploaded, yet</div>
+        <div>No files uploaded, yet</div>
     {{/if}}
     </div>
-
-
 
 </template>
