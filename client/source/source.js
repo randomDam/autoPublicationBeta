@@ -22,12 +22,15 @@ Template.uploadedFiles.helpers({
   }
 });
 
+//-----------------------------------------------------------------------------
+// organiser et ordonner les items (media box)
+//-----------------------------------------------------------------------------
 pckry = null;
 
 organise = function() {
     pckry = new Packery('#mediaCollection', {
         itemSelector: '.mediaBloc',
-        columnWidth: 120
+        columnWidth: 220
     });
 
     pckry.getItemElements().forEach(function(itemElem) {
@@ -68,6 +71,15 @@ Template.uploadedFiles.helpers({
         }
     }
 });
+
+
+Template.uploadedFiles.events({
+    "click .edit": function(event, template){
+        console.log("hello");
+        Blaze.render(Template.modalEdit, $("#main")[0]);
+    }
+});
+
 
 
 fileList = null;

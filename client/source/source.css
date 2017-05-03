@@ -8,8 +8,8 @@
 }
 
 .mediaBloc {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     margin: 3px;
     float: left;
     border-style: solid;
@@ -34,12 +34,49 @@
     height: 20px;
 }
 
+.nameBloc{
+    position: relative;
+    z-index: 10;
+    top: -54px;
+    left: 0px;
+    background-color: rgba(255,255,255,1);
+    font-family: sans-serif;
+    font-size: 0.9em;
+    margin: 0px;
+    padding: 0px;
+}
+
+.mediaBloc .edit{
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+    right: 0px;
+    height: 16px;
+    width: 50px;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(255,200,255,1);
+    font-family: sans-serif;
+    font-size: 0.9em;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.mediaBloc .edit:hover{
+    background-color: rgb(255, 0, 0);
+}
+
+.mediaBloc .edit p{
+    margin: 0px;
+    padding: 0px;
+}
+
 .mediaBloc img {
     position: relative;
     top: -20px;
     left: 0px;
-    height: 100px;
-    overflow: hidden;
+    height: 200px;
 }
 
 .mediaBloc:hover{
@@ -69,7 +106,7 @@
 }
 
 .packery-drop-placeholder {
-    outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+    outline: 1px dashed hsla(0, 0%, 0%, 0.5);
     outline-offset: -6px;
     -webkit-transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
