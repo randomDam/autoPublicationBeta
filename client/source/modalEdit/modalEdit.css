@@ -9,3 +9,52 @@
     top: 0px;
     left: 0px;
 }
+
+#boite{
+  background-color: purple;
+  margin: 0px;
+  padding: 0pc;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 20;
+  top: 150px;
+  left: 200px;
+}
+
+#boiteImage{
+  background-color: yellow;
+  margin: 0px;
+  padding: 0pc;
+  position: absolute;
+  width: 20%;
+  height: 39%;
+  z-index: 20;
+  top: 205px;
+  left: 220px;
+}
+
+#boiteTitre{
+  background-color: yellow;
+  margin: 0px;
+  padding: 0pc;
+  position: absolute;
+  width: 46%;
+  height: 4%;
+  z-index: 20;
+  top: 165px;
+  left: 220px;
+}
+
+
+#boiteLegende{
+  background-color: red;
+  margin: 0px;
+  padding: 0pc;
+  position: absolute;
+  width: 24%;
+  height: 39%;
+  z-index: 20;
+  top: 205px;
+  right: 260px;
+}
