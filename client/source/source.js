@@ -72,10 +72,12 @@ Template.uploadedFiles.helpers({
     }
 });
 
+idSelected = "";
 
 Template.uploadedFiles.events({
     "click .edit": function(event, template){
-        console.log("hello");
+        var id = event.currentTarget.getAttribute("data-id");
+        idSelected = id;
         Blaze.render(Template.modalEdit, $("#main")[0]);
     }
 });

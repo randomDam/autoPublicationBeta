@@ -35,7 +35,7 @@
     <div id="mediaCollection">
         {{#if uploadedFilesImages.count}}
             {{#each file in uploadedFilesImages.each}}
-                <div class="mediaBloc">
+                <div class="mediaBloc" >
                     <div class="mediaNumber">
                         0
                     </div>
@@ -45,9 +45,10 @@
                     <div class="nameBloc">
                         <p>{{file.name}}</p>
                     </div>
-                    <div class="edit">
+                    <div class="edit" data-id={{file._id}}>
                         <p>editer</p>
                     </div>
+
                 </div>
                 {{doneTrigger}}
             {{/each}}
