@@ -35,6 +35,18 @@
 overflow: hidden;
 }
 
+
+
+#boiteImage > img{
+  background-color: yellow;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  height: 100%;
+  /* Calculer le rapport de l'image pour un affichage qui convient à mademaoiselle.*/
+  z-index: 20;
+}
+
 #boiteTitre{
   background-color: yellow;
   margin: 0px;

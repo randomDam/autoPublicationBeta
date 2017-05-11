@@ -86,16 +86,14 @@ Template.uploadedFiles.helpers({
     }
 });
 
-idSelected = "";
+Session.setDefault("currentSourceId", {})
 
-Template.uploadedFiles.events({
+Template.sourcesView.events({
     "click .edit": function(event, template){
-        var id = event.currentTarget.getAttribute("data-id");
-        idSelected = id;
+        Session.set("currentSourceId", this._id);
         Blaze.render(Template.modalEdit, $("#main")[0]);
     }
 });
-
 
 
 fileList = null;

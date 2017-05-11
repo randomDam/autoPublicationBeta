@@ -8,17 +8,28 @@
     </div>
 
     <div id="boiteImage">
-        <img src="{{getPathById}}" alt="" height="300px"/>
+        <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
     </div>
 
     <div id="boiteTitre">
-      <input type="text" name="Titre" value="nomImage.jpg">
-      <span id="closeEditModal" style="float:right;">[X]</span>
+      <span class="closeEditModal" style="float:right;">[X]</span>
     </div>
 
     <div id="boiteLegende">
-      <input type="text" name="Legende" value="écrire légende">
+      <input type="hidden" name="_id" value={{currentSource._id}} />
 
+      <input type="hidden" name="media_id" value={{currentSource.media_id}} />
+      <label>Auteur</label>
+      <input type="text" name="author" value={{currentSource.author}} />
+      <label>Titre</label>
+      <input type="text" name="titre" value={{currentSource.titre}} />
+      <label>Date</label>
+      <input type="text" name="date" value={{currentSource.date}} />
+      <label>Lieu</label>
+      <input type="text" name="lieu" value={{currentSource.lieu}} />
+
+      <button id="addDataToSource">Valider</button>
+      <button class="closeEditModal">Annuler</button>
     </div>
 </div>
 </template>

@@ -76,19 +76,22 @@
     position: relative;
     top: -20px;
     left: 0px;
-    height: 200px;
+    height: 100%;
 }
 
 .mediaBloc:hover{
     border-color: rgb(0, 0, 200);
     border-style: dashed;
 }
-
+#mediaCollectionContainer {
+  height : 600px;
+  overflow-y: scroll;
+}
 #mediaCollection {
     background-color: rgb(200, 200, 200);
     left: 10px;
     width: calc(100% - 30px);
-    height: auto;
+    //height: 100%;
     min-height: 600px;
     padding: 5px;
     margin: 0px;

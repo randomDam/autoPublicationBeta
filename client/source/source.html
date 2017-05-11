@@ -30,6 +30,7 @@
 
 
 <template name="sourcesView">
+  <div id="mediaCollectionContainer">
   <div id="mediaCollection">
     {{#if hasSources}}
       {{#each sources}}
@@ -41,7 +42,11 @@
             <img src="{{file.link}}" target="_blank" data-id={{file._id}}>
 
             <div class="nameBloc">
-                <p>{{file.name}}</p>
+                {{#if titre}}
+                  <p>{{titre}}</p>
+                {{else}}
+                  <p>{{file.name}}</p>
+                {{/if}}
             </div>
             <div class="edit" data-id={{file._id}}>
                 <p>editer</p>
@@ -54,6 +59,7 @@
     {{/if}}
 
   </div>
+</div>
 </template>
 
 <template name="uploadedFiles">
