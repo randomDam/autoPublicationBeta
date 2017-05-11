@@ -6,7 +6,8 @@ Template.modalEdit.helpers({
 });
 
 Template.modalEdit.events({
-    "click #foo": function(event, template){
-
+    "click #closeEditModal": function(event, template){
+      console.log("Click")
+      Blaze.remove(Template.instance().view);
     }
 });

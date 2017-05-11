@@ -12,15 +12,29 @@ Template.uploadedFiles.onRendered(function() {
     orderItems();
 });
 
-Template.uploadedFiles.helpers({
+
+Template.sourcesView.helpers({
+  hasSources : function(){
+    if(Sources.find().count()>0) return true
+    return false
+  },
+  sources : function(){
+    return Sources.find();
+
+  },
   doneTrigger: function() {
     Meteor.defer(function() {
         organise();
         orderItems();
     });
     return null;
+  },
+  file : function(){
+    return Medias.findOne({_id:this.media_id})
   }
+
 });
+
 
 //-----------------------------------------------------------------------------
 // organiser et ordonner les items (media box)
@@ -59,7 +73,7 @@ Template.uploadForm.helpers({
 
 Template.uploadedFiles.helpers({
     uploadedFilesImages: function() {
-        return Images.find();
+        return Medias.find();
     },
     isSelected: function(id) {
         //console.log("id"+id);
@@ -114,7 +128,7 @@ Template.uploadForm.events({
 upLoadFonction = function(file) {
 
     if (file) {
-        var uploadInstance = Images.insert({
+        var uploadInstance = Medias.insert({
             file: file,
             streams: 'dynamic',
             chunkSize: 'dynamic'
