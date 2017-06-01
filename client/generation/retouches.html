@@ -1,0 +1,24 @@
+<template name="retouches">
+  <div class="retouches-container">
+    <div class="retouches-css">
+      <button id="update-css">Valider</button>
+      <h1>CSS EDITOR</h1>
+      <textarea id="rawcsseditor" rows="4" cols="50"> {{currentCSS}} </textarea>
+      <h1>Content EDITOR</h1>
+      <textarea id="rawcontenteditor" rows="4" cols="50"> {{currentContent}} </textarea>
+    </div>
+    {{#each pages}}
+    <div class="page">
+      <div class="element" style="{{css}}">
+        <!--<div class="title" >{{title}}</div>-->
+        <div>
+          {{{content}}}
+        </div>
+        <div>
+          <img src="http://lorempixel.com/400/200/" />
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>
