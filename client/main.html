@@ -22,6 +22,9 @@
 
   <div id="main">
 
+    {{#if getMode "about"}}
+        {{> about}}
+    {{/if}}
     {{#if getMode "source"}}
         {{> source}}
     {{/if}}

@@ -17,6 +17,11 @@ function populate(){
 
 Template.body.events({
 
+  'click #about'(event, instance) {
+    // increment the counter when button is clicked
+    console.log("Présentation!");
+    Session.set("MODE","about");
+  },
   'click #source'(event, instance) {
     // increment the counter when button is clicked
         populate()
