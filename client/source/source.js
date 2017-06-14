@@ -1,5 +1,3 @@
-import Packery from 'packery';
-import Draggabilly from 'draggabilly';
 
 Template.uploadForm.onCreated(function() {
     this.currentUpload = new ReactiveVar(false);
@@ -8,24 +6,24 @@ Template.uploadForm.onCreated(function() {
 Template.uploadedFiles.onRendered(function() {
     console.log("rendered : "  +$(".mediaBloc").length);
 
-    organise();
-    orderItems();
+    //organise();
+    //orderItems();
 });
 
 
 Template.sourcesView.helpers({
-  hasSources : function(){
-    if(Sources.find().count()>0) return true
+  hasPages : function(){
+    if(Pages.find().count()>0) return true
     return false
   },
-  sources : function(){
-    return Sources.find();
+  pages : function(){
+    return Pages.find();
 
   },
   doneTrigger: function() {
     Meteor.defer(function() {
-        organise();
-        orderItems();
+        //organise();
+        //orderItems();
     });
     return null;
   },
@@ -39,30 +37,6 @@ Template.sourcesView.helpers({
 //-----------------------------------------------------------------------------
 // organiser et ordonner les items (media box)
 //-----------------------------------------------------------------------------
-pckry = null;
-
-organise = function() {
-    pckry = new Packery('#mediaCollection', {
-        itemSelector: '.mediaBloc',
-        columnWidth: 220
-    });
-
-    pckry.getItemElements().forEach(function(itemElem) {
-        var draggie = new Draggabilly(itemElem);
-        pckry.bindDraggabillyEvents(draggie);
-    });
-
-    pckry.on('layoutComplete', orderItems);
-    pckry.on('dragItemPositioned', orderItems);
-}
-
-orderItems = function() {
-    if(pckry!=null)
-    pckry.getItemElements().forEach(function(itemElem, i) {
-        itemElem.getElementsByClassName("mediaNumber")[0].innerText = i + 1;
-    });
-}
-
 
 Template.uploadForm.helpers({
     currentUpload: function() {
@@ -102,8 +76,6 @@ templateUp = null;
 Template.uploadForm.events({
     'change #fileInput': function(e, template) {
         if (e.currentTarget.files && e.currentTarget.files[0]) {
-            console.log("up media");
-            console.log(e.currentTarget.files);
 
             templateUp = template;
 
@@ -147,7 +119,6 @@ upLoadFonction = function(file) {
                 if (fileList.length > 0) upLoadFonction(fileList[0]);
             }
             templateUp.currentUpload.set(false);
-            organise();
         });
 
         uploadInstance.start();

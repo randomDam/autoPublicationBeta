@@ -1,0 +1,50 @@
+/* CSS declarations go here */
+.grid {
+}
+.newpage {
+  position:fixed;
+  width:21px;
+  height:29px;
+  background-color:white;
+  margin:10px;
+  float:left;
+  padding:10px;
+  //overflow: hidden;
+  border:2px solid black;
+}
+
+.page {
+  width:120px;
+  height:200px;
+  background-color:grey;
+  margin:10px;
+  float:left;
+  padding:10px;
+  overflow: hidden;
+}
+
+.page img {
+    position: relative;
+    top: -20px;
+    left: 0px;
+    height: 100%;
+}
+
+
+.remove-page {
+  float: right;
+}
+.remove-page:hover {
+  color:white;
+  cursor:pointer;
+}
+
+
+.source {
+  background-color:purple;
+  height:40%;
+  margin:4px;
+  line-height:12px;
+  font-size: 40px;
+  text-align:center;
+}

@@ -27,9 +27,15 @@
     {{/with}}
 
 </template>
-
-
 <template name="sourcesView">
+    <div class="grid">
+      {{> grid }}
+    </div>
+
+</template>
+
+
+<template name="sourcesView_OLD">
   <div id="mediaCollectionContainer">
   <div id="mediaCollection">
     {{#if hasSources}}

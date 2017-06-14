@@ -1,0 +1,34 @@
+<head>
+  <title>dnd</title>
+</head>
+
+<body>
+  <div class="grid">
+  {{!-- grid --}}
+  </div>
+</body>
+
+<template name="grid">
+  <h1>Grid</h1>
+    <div draggable=true class="newpage">
+    </div> 
+  <button>Ajouter page</button>
+  <br>
+  {{#each pages}}
+    <div draggable=true class="page">
+    {{position}}
+      <span class="remove-page">[X]</span>
+      {{#each sources}}
+      <div id="{{_id}}" draggable=true class="source">
+        {{#if isImage _id}}
+        <img id="{{_id}}" class="source" draggable=true src="{{source_content _id}}" />
+        {{/if}}
+        {{#if isText _id}}
+        <span>Ceci est du texte</span>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</template>
+

@@ -3,22 +3,23 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  //this.counter = new ReactiveVar(0);
-  Session.set("MODE","none");
-});
+function populate(){
+  Pages.remove({})
+  _.each(Sources.find().fetch(), function(d){
+    Pages.insert({position: index, sources:[d]})
+    index++;
+    console.log(d)
+  })
+  
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
+}
+
 
 Template.body.events({
 
   'click #source'(event, instance) {
     // increment the counter when button is clicked
+        populate()
     console.log("source!");
     Session.set("MODE","source");
   },
