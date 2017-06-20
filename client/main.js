@@ -10,13 +10,18 @@ function populate(){
     index++;
     console.log(d)
   })
-  
+
 
 }
 
 
 Template.body.events({
 
+  'click #bob'(event, instance) {
+    // increment the counter when button is clicked
+    console.log("page bob!");
+    Session.set("MODE","bob");
+  },
   'click #about'(event, instance) {
     // increment the counter when button is clicked
     console.log("Présentation!");
@@ -28,6 +33,11 @@ Template.body.events({
     console.log("source!");
     Session.set("MODE","source");
   },
+  'click #archives'(event, instance) {
+  // increment the counter when button is clicked
+  console.log("archvives!");
+  Session.set("MODE","archives");
+},
   'click #generation'(event, instance) {
     // increment the counter when button is clicked
     console.log("generation!");

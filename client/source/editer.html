@@ -11,11 +11,11 @@
 <template name="grid">
   <h1>Grid</h1>
     <div draggable=true class="newpage">
-    </div> 
+    </div>
   <button>Ajouter page</button>
   <br>
   {{#each pages}}
-    <div draggable=true class="page">
+    <div draggable=true class="page_edition">
     {{position}}
       <span class="remove-page">[X]</span>
       {{#each sources}}
@@ -34,4 +34,3 @@
     </div>
   {{/each}}
 </template>
-

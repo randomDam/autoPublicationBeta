@@ -1,30 +1,93 @@
 /* CSS declarations go here */
+
+
+body{
+  font-family: 'WorkSans-Bold';
+  font-size: 14px;
+  background-color: white;
+}
+
+h1{
+    font-family: 'WorkSans-Black';
+  font-size: 100px;
+}
+
+h2{
+  font-size: 36px;
+}
+
+h3{
+font-size: 24px;
+}
+
+h4{
+font-size: 20px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+#header_container{
+width: 100%;
+height: 100%;
+display: inline-flex;
+
+}
+
+#acceuil_container{
+display: inline-flex;
+float: left;
+width: 150px;
+height: 10px;
+}
+
+#bob{
+width: auto;
+margin-left: 30px;
+float: left;
+display: inline-block;
+
+}
+
 #menu{
-    position: absolute;
     padding: 0px;
-    background-color: rgb(200, 200, 200);
     margin: 0px;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 30px;
-/*    display: inline-flex;*/
+
+  display: inline-flex;
+
+  justify-content:flex-end;
+
 }
 .bt{
-    background-color: rgb(255, 255, 255);
-    width: 140px;
-    margin: 4px;
+    /*background-color: rgb(255, 255, 255);*/
+    /*width: 100%;*/
+    margin: 20px;
+    margin-right: 50px;
     align-content: center;
-    height: 20px;
+    height: 22px;
     float: right;
+    /*
     border-style: solid;
     border-width: thin;
     border-color: rgb(0, 0, 0);
+    */
 }
 
+
+
 .bt:hover{
-    background-color: rgba(0, 200, 220,0.3);
+    /*background-color: rgba(0, 200, 220,0.3);*/
+    color: rgba(0, 0, 0, 1);
     cursor: pointer;
+    border-bottom: solid 2px black;
+
 }
 
 .bt p{
@@ -35,13 +98,13 @@
 
 #main{
     position: absolute;
-    background: rgb(247, 247, 247);
-    width: calc( 100% - 0px );
-    height: calc( 100% - 30px );
+    background: rgb(243, 243, 240);
+    width: calc( 100% - 60px ); /* attention 100% - 2x le top */
+    height: calc( 100% - 90px ); /* attention 100% - 2x le top */
     left: 0px;
-    top:30px;
-    margin: 0px;
+    top:60px;
+    margin-left: 30px; /* attention même margin-left que le top */
     padding: 0px;
     z-index: -1;
-    overflow: hidden;
+    overflow-y: scroll;
 }

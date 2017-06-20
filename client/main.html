@@ -4,24 +4,47 @@
 
 <body>
 
+<div id="header_container">
+  <div id="accueil_container">
+          <div class="bt" id="bob">
+                <p>accueil</p>
+          </div>
+  </div>
   <div id="menu">
 
-    <div class="bt" id="generation">
-        <p>generation page</p>
-    </div>
-    <div class="bt" id="source">
-          <p>Editer</p>
-    </div>
+
     <div class="bt" id="about">
-        <p>présentation</p>
+        <p>à propos</p>
     </div>
+
+    <div class="bt" id="archives">
+        <p>archives</p>
+    </div>
+
+    <div class="bt" id="source">
+          <p>éditer</p>
+    </div>
+
+    <div class="bt" id="generation">
+        <p>générer</p>
+    </div>
+
   </div>
+</div>
 
   <div id="main">
+
+    {{#if getMode "bob"}}
+        {{> bob}}
+    {{/if}}
+    {{#if getMode "archives"}}
+        {{> archives}}
+    {{/if}}
 
     {{#if getMode "about"}}
         {{> about}}
     {{/if}}
+
     {{#if getMode "source"}}
         {{> source}}
     {{/if}}
@@ -32,8 +55,3 @@
   </div>
 
 </body>
-
-
-
-
-

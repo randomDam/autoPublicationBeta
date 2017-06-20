@@ -1,0 +1,18 @@
+#titreAbout p {
+  font-family: 'WorkSans-Bold';
+  text-align: center;
+  font-size: 60px;
+  margin-top: 150px;
+}
+
+#sousTitreAbout p{
+  font-family: 'WorkSans-Bold';
+  text-align: center;
+  font-size: 30px;
+}
+
+
+#sousTitreAbout:hover p{
+  cursor: pointer;
+  border-bottom: solid 2px black;
+}

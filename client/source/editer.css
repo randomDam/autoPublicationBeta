@@ -1,5 +1,6 @@
 /* CSS declarations go here */
 .grid {
+
 }
 .newpage {
   position:fixed;
@@ -13,7 +14,7 @@
   border:2px solid black;
 }
 
-.page {
+.page_edition {
   width:240px;
   height:400px;
   background-color:grey;
@@ -41,7 +42,7 @@
 
 
 .source {
-  //background-color:purple;
+
   height:40%;
   margin:4px;
   line-height:12px;
