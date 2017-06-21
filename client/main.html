@@ -6,26 +6,26 @@
 
 <div id="header_container">
   <div id="accueil_container">
-          <div class="bt" id="bob">
+    <div class="bt {{#if getMode 'bob'}}current{{/if}}" id="bob">
                 <p>accueil</p>
           </div>
   </div>
   <div id="menu">
 
 
-    <div class="bt" id="about">
+    <div class="bt {{#if getMode 'about'}}current{{/if}}" id="about">
         <p>à propos</p>
     </div>
 
-    <div class="bt" id="archives">
+    <div class="bt {{#if getMode 'archives'}}current{{/if}}" id="archives">
         <p>archives</p>
     </div>
 
-    <div class="bt" id="source">
+    <div class="bt {{#if getMode 'source'}}current{{/if}}" id="source">
           <p>éditer</p>
     </div>
 
-    <div class="bt" id="generation">
+    <div class="bt {{#if getMode 'generation'}}current{{/if}}" id="generation">
         <p>générer</p>
     </div>
 

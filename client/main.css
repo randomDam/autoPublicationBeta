@@ -96,6 +96,14 @@ display: inline-block;
     text-align: center;
 }
 
+
+.current {
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+    border-bottom: solid 2px black;
+
+}
+
 #main{
     position: absolute;
     background: rgb(243, 243, 240);

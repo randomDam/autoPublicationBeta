@@ -3,6 +3,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+Session.setDefault("MODE", "bob")
+
 function populate(){
   Pages.remove({})
   _.each(Sources.find().fetch(), function(d){
