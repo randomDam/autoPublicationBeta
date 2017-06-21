@@ -12,8 +12,11 @@ Template.modalEdit.helpers({
 });
 
 Template.modalEdit.events({
-    "click .closeEditModal": function(event, template){
-      Blaze.remove(Template.instance().view);
+    "click .close": function(event, template){
+      //Blaze.remove(Template.instance().view);
+        var modal = document.getElementById("myModal")
+        modal.style.display = "none"
+
     },
     "click #addDataToSource": function(event, template){
       //var author = template.find()

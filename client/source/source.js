@@ -65,7 +65,9 @@ Session.setDefault("currentSourceId", {})
 Template.sourcesView.events({
     "click .edit": function(event, template){
         Session.set("currentSourceId", this._id);
-        Blaze.render(Template.modalEdit, $("#main")[0]);
+        //Blaze.render(Template.modalEdit, $("#main")[0]);
+        var modal = document.getElementById("myModal")
+        modal.style.display = "block"
     }
 });
 
