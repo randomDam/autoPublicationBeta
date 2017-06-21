@@ -1,7 +1,4 @@
 <template name="modalEdit">
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
@@ -9,6 +6,21 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Some text in the Modal..</p>
+      <input type="hidden" name="_id" value={{currentSource._id}} />
+      <input type="hidden" name="media_id" value={{currentSource.media_id}} />
+
+      <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
+      <label>Auteur</label>
+      <input type="text" name="author" value={{currentSource.author}} />
+      <label>Titre</label>
+      <input type="text" name="titre" value={{currentSource.titre}} />
+      <label>Date</label>
+      <input type="text" name="date" value={{currentSource.date}} />
+      <label>Lieu</label>
+      <input type="text" name="lieu" value={{currentSource.lieu}} />
+
+      <button id="addDataToSource">Valider</button>
+      <a href="#" class="close">Annuler</a>
   </div>
 
 </div>
