@@ -2,14 +2,17 @@
   <title>dnd</title>
 </head>
 
-<body>
-  <div class="grid">
-  {{!-- grid --}}
-  </div>
-</body>
 
 <template name="grid">
-  <h1>Grid</h1>
+  <div id="titreEditer">
+  <h2>ÉDITER</h2>
+</div>
+    {{> uploadForm}}
+<div class="grid">
+{{!-- grid --}}
+</div>
+
+
     <div draggable=true class="newpage">
     </div>
   <button>Ajouter page</button>

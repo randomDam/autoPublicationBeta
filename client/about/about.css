@@ -1,18 +1,21 @@
-#titreAbout p {
-  font-family: 'WorkSans-Bold';
-  text-align: center;
-  font-size: 60px;
+#titreAbout{
+  margin-left: 50px;
   margin-top: 150px;
 }
 
-#sousTitreAbout p{
-  font-family: 'WorkSans-Bold';
-  text-align: center;
-  font-size: 30px;
-}
+/*#sousTitre{
+  display: inline-block;
+  margin: 10px;
+  width: 150px;
+  height:30px;
+}*/
 
-
-#sousTitreAbout:hover p{
-  cursor: pointer;
-  border-bottom: solid 2px black;
+#menuAbout{
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 100%;
+  height: 30px;
+  text-align: left;
+  display: inline-flex;
+  justify-content: flex-start;
 }

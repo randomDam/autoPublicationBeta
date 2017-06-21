@@ -3,8 +3,13 @@
 }
 
 #loadImage {
-    font-weight: bold;
-    font-size: 25px;
+}
+
+
+#uploadContainer{
+
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 .mediaBloc {
@@ -81,4 +86,22 @@
     outline-offset: -6px;
     -webkit-transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
+}
+
+.custom-file-upload{
+  cursor: pointer;
+  font-family: 'WorkSans-Bold';
+  font-size: 15px;
+  background-color: rgba(230, 65, 28,1);
+  color: white;
+  height:30px;
+  width: 320px;
+  padding : 10px;
+  border:0;
+  display: block;
+}
+
+.custom-file-upload:hover {
+    color: black;
+    background-color: white;
 }

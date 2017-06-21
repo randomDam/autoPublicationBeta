@@ -1,22 +1,29 @@
 <template name="source">
     {{> modalEdit }}
-    {{> uploadForm}}
     {{> sourcesView}}
 </template>
 
 
+
+<template name="sourcesView">
+
+  <div class="grid-container">
+    <div class="grid">
+      {{> grid }}
+    </div>
+</div>
+</template>
+
 <template name="uploadForm">
 
+<div id="uploadContainer">
     {{#with currentUpload}}
         Uploading <b>{{file.name}}</b>:
         <span id="progress">{{progress.get}}%</span>
     {{else}}
 
-        <label for="fileInput" class="custom-file-upload">
-            <div id="loadImage">
-                <p>Importer</p>
-            </div>
-            <input id="fileInput" type="file" multiple/>
+        <label for="fileInput" class="custom-file-upload"> <h3>importer un fichier + </h3>
+            <input class="btInput" id="fileInput" type="file" multiple/>
         </label>
 
 <!--        <div id="textInfo">
@@ -26,15 +33,8 @@
         </div>
 -->
     {{/with}}
-
-</template>
-<template name="sourcesView">
-
-  <div class="grid-container">
-    <div class="grid">
-      {{> grid }}
-    </div>
 </div>
+
 </template>
 
 

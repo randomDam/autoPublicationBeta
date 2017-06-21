@@ -1,19 +1,5 @@
 #titreAccueil {
-  width: 50%;
-  margin: 0 25%;
-  text-align: center;
-}
-
-
-
-
-.lien{
-  margin: 200px auto;
-
-}
-
-.lien>h1:hover{
-cursor: pointer;
-border-bottom: solid 6px black;
-
+  width: 60%;
+  margin: 200px 5%;
+  text-align: left;
 }
