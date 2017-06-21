@@ -14,7 +14,7 @@
   border:2px solid black;
 }
 
-.page_edition {
+.page {
   width:240px;
   height:400px;
   background-color:grey;
@@ -22,6 +22,11 @@
   float:left;
   padding:10px;
   overflow: hidden;
+}
+
+.edition{
+
+  
 }
 
 .page img {
