@@ -1,39 +1,41 @@
 <head>
-  <title>dnd</title>
+    <title>dnd</title>
 </head>
 
 
 <template name="grid">
-  <div id="titreEditer">
-  <h2>ÉDITER</h2>
-</div>
+    <div id="titreEditer">
+        <h2>ÉDITER</h2>
+    </div>
     {{> uploadForm}}
-<div class="grid">
-{{!-- grid --}}
-</div>
+    <div class="grid">
+        {{!-- grid --}}
+    </div>
 
 
     <div draggable=true class="newpage">
     </div>
-  <button>Ajouter page</button>
-  <br>
-  {{#each pages}}
+    <button>Ajouter page</button>
+    <br>
+
+
+    {{#each pages}}
     <div draggable=true class="page edition">
-    {{position}}
-      <span class="remove-page">[X]</span>
-      {{#each sources}}
-      <div id="{{_id}}" draggable=true class="source">
-        {{#if isImage _id}}
-        <img id="{{_id}}" class="source" draggable=true src="{{source_content _id}}" />
-        {{/if}}
-        {{#if isText _id}}
-        <span>Ceci est du texte</span>
-        {{/if}}
+        {{position}}
+        <span class="remove-page">[X]</span>
+        {{#each sources}}
+        <div id="{{_id}}" draggable=true class="source">
+            {{#if isImage _id}}
+            <img id="{{_id}}" class="source" draggable=true src="{{source_content _id}}" />
+            {{/if}}
+            {{#if isText _id}}
+            <span>Ceci est du texte</span>
+            {{/if}}
             <div class="edit" data-id={{file._id}}>
                 <p>editer</p>
             </div>
-      </div>
-      {{/each}}
+        </div>
+        {{/each}}
     </div>
-  {{/each}}
+    {{/each}}
 </template>

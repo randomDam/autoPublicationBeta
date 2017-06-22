@@ -1,5 +1,14 @@
-/* CSS declarations go here */
 
+/* CSS declarations go here */
+@font-face{
+	font-family: 'WorkSans-Black';
+    src:url("/WorkSans-Black.ttf");
+}
+
+@font-face{
+	font-family: 'WorkSans-Bold';
+    src:url("/WorkSans-Bold.ttf");
+}
 
 body{
   font-family: 'WorkSans-Bold';
@@ -8,14 +17,12 @@ body{
 }
 
 h1{
-    font-family: 'WorkSans-Black';
-  font-size: 100px;
+	font-family: 'WorkSans-Black';
+	font-size: 100px;
 }
 
 h2{
   font-size: 60px;
-
-
 }
 
 h3{
@@ -139,7 +146,7 @@ display: inline-block;
     margin-left: 30px; /* attention même margin-left que le top */
     padding: 0px;
     z-index: -1;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 button {

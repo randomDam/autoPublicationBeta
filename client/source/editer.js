@@ -2,7 +2,6 @@
 Pages = new Mongo.Collection(null)
 
 
-
 index = 0
 Template.grid.onRendered(function(){
 })
@@ -65,10 +64,10 @@ Template.grid.events({
 
   "drop .page" : function(e,t){
     var data = e.originalEvent.dataTransfer.getData('text/plain')
-    data = JSON.parse(data) 
+    data = JSON.parse(data)
     console.log(data, this)
     if(data.type === "source"){
-      e.preventDefault() 
+      e.preventDefault()
       dropSource(e,this._id, data.id)
     }
     if(data.type === "page"){
@@ -95,7 +94,7 @@ function addNewPage(target_id){
   console.log("Add new page...");
   page_cible = Pages.findOne(target_id)
   console.log(page_cible.position)
-  position = page_cible.position 
+  position = page_cible.position
   newpage = {position : position+1, sources:[]}
   renumerotation(position)
   Pages.insert(newpage)
@@ -127,10 +126,10 @@ function dropSource(e,pageId, sourceId){
       } else {
           id_element_cible = e.originalEvent.srcElement.id
           var source_cible = Sources.findOne({_id:id_element_cible})
-          Pages.update({_id:page_source._id},{$push : {sources : source_cible}}) 
-          Pages.update({_id:page_source._id},{$pull : {sources : source}}) 
-          Pages.update({_id:page_cible._id},{$pull : {sources : source_cible}}) 
-          Pages.update({_id:page_cible._id},{$push : {sources : source}}) 
+          Pages.update({_id:page_source._id},{$push : {sources : source_cible}})
+          Pages.update({_id:page_source._id},{$pull : {sources : source}})
+          Pages.update({_id:page_cible._id},{$pull : {sources : source_cible}})
+          Pages.update({_id:page_cible._id},{$push : {sources : source}})
       }
     } else {
         if(page_cible.sources.length === 2){
@@ -142,4 +141,3 @@ function dropSource(e,pageId, sourceId){
         }
     }
 }
-

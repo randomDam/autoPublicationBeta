@@ -32,6 +32,9 @@ Template.retouches.helpers({
       return Pages.findOne(currentPage.get()).content
     }
     return "Pas de page"
-  }
+  },
+    getLink:function(_id){
+        Media.findOne({_id:_id}).link();
+    }
 
 })
