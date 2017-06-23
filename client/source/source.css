@@ -10,6 +10,7 @@
 
   margin-left: 50px;
   margin-bottom: 20px;
+  display: inline-flex;
 }
 
 .mediaBloc {
@@ -90,18 +91,25 @@
 
 .custom-file-upload{
   cursor: pointer;
-  font-family: 'WorkSans-Bold';
-  font-size: 15px;
-  background-color: rgba(230, 65, 28,1);
-  color: white;
-  height:30px;
-  width: 320px;
-  padding : 10px;
-  border:0;
-  display: block;
+  color: rgba(230, 65, 28,1);
+  height: 70px;
+  width: 350px;
 }
 
 .custom-file-upload:hover {
     color: black;
-    background-color: white;
+}
+
+.bouton h3{
+  color: rgba(230, 65, 28,1);
+  height: 30px;
+  width: 120px;
+  padding : 0px;
+  border:0;
+  display: block;
+  margin-left: 50px;
+}
+
+.bouton:hover h3{
+  color: black;
 }
