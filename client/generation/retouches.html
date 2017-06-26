@@ -14,6 +14,56 @@
         <div id="retouches-container">
             {{#each pages}}
                 <div class="page">
+                  {{#each sources}}
+                  <!--<div class="element" style="{{css}}">-->
+                            {{{content}}}
+                  <!--</div>-->
+                  {{/each}}
+                </div>
+            {{/each}}
+        </div>
+
+    </div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template name="retouchesOLD">
+
+
+    <div class="retouches-css">
+            <button id="update-css">Valider</button>
+            <h2>CSS EDITOR</h2>
+            <textarea id="rawcsseditor" rows="4" cols="50"> {{currentCSS}} </textarea>
+            <h2>Content EDITOR</h2>
+            <textarea id="rawcontenteditor" rows="4" cols="50"> {{currentContent}} </textarea>
+    </div>
+
+    <div class="grid-retouches-container">
+
+        <div id="retouches-container">
+            {{#each pages}}
+                <div class="page">
                   <div class="element" style="{{css}}">
                     <!--<div class="title" >{{title}}</div>-->
                         <div>

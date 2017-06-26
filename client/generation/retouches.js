@@ -1,18 +1,36 @@
 
-currentPage = new ReactiveVar(null)
+currentSource = new ReactiveVar(null)
 
 Template.retouches.events({
   "click #update-css" : function(e,t){
     var newcss = $("#rawcsseditor").val().trim() //.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ');
     var newcontent = $("#rawcontenteditor").val().trim() //.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ');
-    Pages.update(currentPage.get(),{$set:{content:newcontent, css:newcss}})
+    var page = Pages.findOne({"sources._id" : currentSource.get()})
+    _.each(page.sources, function(source){
+      if(source._id === currentSource.get()){
+        source.content = newcontent
+        source.css = newcss  
+      }
+    })
+    Pages.update(page._id, {$set:{"sources": page.sources}})
   },
 
-  "click .page" : function(e,t){
+  "click .element" : function(e,t){
     console.log(this._id)
-    currentPage.set(this._id)
+    currentSource.set(this._id)
   }
 });
+
+
+function getCurrentSource(id){
+  var page = Pages.findOne({"sources._id":currentSource.get()})
+    _.each(page.sources, function(source){
+      if(source._id === currentSource.get()){
+        return source
+      }
+    })
+  return ""
+}
 
 
 
@@ -22,19 +40,25 @@ Template.retouches.helpers({
   },
 
   currentCSS : function(){
-    if(currentPage.get() != null){
-      return Pages.findOne(currentPage.get()).css
+    if(currentSource.get() != null){
+      var source = getCurrentSource(currentSource.get())
+      if(source) return source.css
+      else return ""
+
     }
     return "Pas de page"
   },
   currentContent : function(){
-    if(currentPage.get() != null){
-      return Pages.findOne(currentPage.get()).content
+    if(currentSource.get() != null){
+      var source = getCurrentSource(currentSource.get())
+      if(source) return source.content
+      else return ""
+
     }
     return "Pas de page"
   },
     getLink:function(_id){
-        Media.findOne({_id:_id}).link();
+        Medias.findOne({_id:_id}).link();
     }
 
 })

@@ -21,11 +21,11 @@
     {{position}}
     <span class="remove-page">[X]</span>
     {{#each sources}}
-    <div id="{{this}}" draggable=true class="source">
-      {{#if isImage _id}}
-      <img id="{{_id}}" class="source" draggable=true src="{{source_content _id}}" />
+    <div id="{{source_id}}" draggable=true class="source">
+      {{#if isImage source_id}}
+      <img id="{{source_id}}" class="source" draggable=true src="{{source_content source_id}}" />
       {{/if}}
-      {{#if isText _id}}
+      {{#if isText source_id}}
       <span>Ceci est du texte</span>
       {{/if}}
       <div class="edit" data-id={{file._id}}>

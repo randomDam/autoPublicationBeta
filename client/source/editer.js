@@ -18,19 +18,12 @@ Template.grid.helpers({
     var source = Sources.findOne(id)
     var media = Medias.findOne({_id:source.media_id})
     return media.link()
-  },
-  isText(id){
-    return Medias.findOne({_id:Sources.findOne({_id:id}).media_id}).isText
-  },
-  isImage(id){
-    return Medias.findOne({_id:Sources.findOne({_id:id}).media_id}).isImage
   }
 })
 
 Template.grid.events({
   "click .remove-page" : function(){
     if(this.sources.length === 0){
-      console.log(this)
       Pages.remove(this._id)
       renumerotation(this.position-1)
     }
@@ -51,21 +44,19 @@ Template.grid.events({
   },
   "dragstart .source" : function(e,t){
     e.stopPropagation()
-      console.log(this)
-    e.originalEvent.dataTransfer.setData('text/plain', JSON.stringify({type:"source",id : this._id}))
+    e.originalEvent.dataTransfer.setData('application/json', JSON.stringify({type:"source",id : this.source_id}))
   },
   "dragstart .page" : function(e,t){
-    e.originalEvent.dataTransfer.setData('text/plain', JSON.stringify({type:"page",id : this._id}))
+    e.originalEvent.dataTransfer.setData('application/json', JSON.stringify({type:"page",id : this._id}))
   },
   "dragstart .newpage" : function(e,t){
-    e.originalEvent.dataTransfer.setData('text/plain', JSON.stringify({type:"newpage",id : this._id}))
+    e.originalEvent.dataTransfer.setData('application/json', JSON.stringify({type:"newpage",id : this._id}))
   },
 
 
   "drop .page" : function(e,t){
-    var data = e.originalEvent.dataTransfer.getData('text/plain')
+    var data = e.originalEvent.dataTransfer.getData('application/json')
     data = JSON.parse(data)
-    console.log(data, this)
     if(data.type === "source"){
       e.preventDefault()
       dropSource(e,this._id, data.id)
@@ -91,9 +82,7 @@ function renumerotation(position){
 }
 
 function addNewPage(target_id){
-  console.log("Add new page...");
   page_cible = Pages.findOne(target_id)
-  console.log(page_cible.position)
   position = page_cible.position
   newpage = {position : position+1, sources:[]}
   renumerotation(position)
@@ -114,26 +103,29 @@ function dropPage(target_id, source_id){
 function dropSource(e,pageId, sourceId){
     // Remove element from source
     var page_cible = Pages.findOne(pageId)
-    var page_source = Pages.findOne({"sources._id" : sourceId})
+    var page_source = Pages.findOne({"sources.source_id" : sourceId})
     var source = Sources.findOne({_id:sourceId})
+
 
     if(page_source._id != page_cible._id) {
       if(page_cible.sources.length <2){
-        Pages.update({_id:page_source._id}, {$pull : {sources : source}})
-          page_cible.sources.push(source)
+          // From one page to another
+          Pages.update({_id:page_source._id}, {$pull : {sources : {source_id:sourceId}}})
+          page_cible.sources.push({source_id:sourceId})
           Pages.update({_id:page_cible._id}, page_cible)
-          //Pages.remove({sources : {$size:0}})
       } else {
+          // Swap from one page with 2 sources to other page
+          // TODO !!!!!!!!
           id_element_cible = e.originalEvent.srcElement.id
           var source_cible = Sources.findOne({_id:id_element_cible})
-          Pages.update({_id:page_source._id},{$push : {sources : source_cible}})
-          Pages.update({_id:page_source._id},{$pull : {sources : source}})
-          Pages.update({_id:page_cible._id},{$pull : {sources : source_cible}})
-          Pages.update({_id:page_cible._id},{$push : {sources : source}})
+          Pages.update({_id:page_source._id},{$pull : {sources : {source_id:sourceId}}})
+          Pages.update({_id:page_cible._id},{$pull : {sources : {source_id:id_element_cible}}})
+          Pages.update({_id:page_source._id},{$push : {sources : {source_id:id_element_cible}}})
+          Pages.update({_id:page_cible._id},{$push : {sources : {source_id:sourceId}}})
       }
     } else {
         if(page_cible.sources.length === 2){
-            console.log("Swap in same page")
+          // Swapp in the same page
             tmp = page_cible.sources[0]
             page_cible.sources[0] = page_cible.sources[1]
             page_cible.sources[1] = tmp
