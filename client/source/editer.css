@@ -45,6 +45,10 @@
     height: 100%;
 }
 
+.pages-container {
+  margin-left:100px;
+}
+
 
 .remove-page {
   float: right;
