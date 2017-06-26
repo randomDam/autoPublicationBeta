@@ -15,9 +15,14 @@
             {{#each pages}}
                 <div class="page">
                   {{#each sources}}
-                  <!--<div class="element" style="{{css}}">-->
-                            {{{content}}}
-                  <!--</div>-->
+                    <div id="{{source_id}}" class="source element">
+                      {{#if isImage source_id}}
+                        {{content}}
+                      {{/if}}
+                      {{#if isText source_id}}
+                      {{content}}
+                      {{/if}}
+                    </div>
                   {{/each}}
                 </div>
             {{/each}}

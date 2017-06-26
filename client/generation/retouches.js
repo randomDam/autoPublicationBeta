@@ -5,9 +5,9 @@ Template.retouches.events({
   "click #update-css" : function(e,t){
     var newcss = $("#rawcsseditor").val().trim() //.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ');
     var newcontent = $("#rawcontenteditor").val().trim() //.replace(/[\n\r]+/g, '').replace(/\s{2,10}/g, ' ');
-    var page = Pages.findOne({"sources._id" : currentSource.get()})
+    var page = Pages.findOne({"sources.source_id" : currentSource.get()})
     _.each(page.sources, function(source){
-      if(source._id === currentSource.get()){
+      if(source.source_id === currentSource.get()){
         source.content = newcontent
         source.css = newcss  
       }
@@ -16,14 +16,14 @@ Template.retouches.events({
   },
 
   "click .element" : function(e,t){
-    console.log(this._id)
-    currentSource.set(this._id)
+    console.log(this)
+    currentSource.set(this.source_id)
   }
 });
 
 
 function getCurrentSource(id){
-  var page = Pages.findOne({"sources._id":currentSource.get()})
+  var page = Pages.findOne({"sources.source_id":currentSource.get()})
     _.each(page.sources, function(source){
       if(source._id === currentSource.get()){
         return source
