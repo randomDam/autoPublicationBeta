@@ -9,27 +9,37 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top:300px;
+    padding-top:calc(100% / 2); 
 }
 
 /* Modal Content/Box */
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    height:400px;
-}
 
 /* The Close Button */
-.close {
+.close-modal-cross {
     color: #aaa;
     float: right;
     font-size: 25px;
     font-weight: bold;
+    cursor:pointer;
 }
+
+
+.close-modal-button {
+    color: #aaa;
+    text-decoration: none;
+
+
+}
+
+.modal-actions {
+  position:relative;
+  right: 20px;
+  bottom:20px;
+  float:right;
+
+}
+
 
 
 .close:hover,
@@ -41,26 +51,83 @@
 
 
 .modal img {
-  float:left;
+  //float:left;
+  height: auto; 
+  width: auto; 
+  max-width:298px;
+  max-height: 300px;
+  margin:auto;
 }
 
+
+#boiteImage {
+  width: 45%;
+  float:left;
+  height:300px;
+  overflow:hidden;
+}
+
+#boiteLegende label, input {
+    /* in order to define widths */
+    display: inline-block;
+}
+
+#boiteLegende label {
+    width: 90%;
+    /* positions the label text beside the input */
+    text-align: right;
+    margin:20px;
+}
+
+#boiteLegende label + input {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+#boiteLegende input + input {
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+#boiteLegende {
+  width:45%;
+  float:right;
+  height:300px;
+  margin-right:50px;
+}
 
 
 /* Modal Header */
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: rgba(230,65,28,1);
     color: white;
+    line-height:40px;
+    height:40px;
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 20px 0px;
+}
 
 /* Modal Footer */
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    //background-color: #5cb85c;
+    //color: white;
 }
 
 /* Modal Content */
@@ -70,7 +137,8 @@
     margin: auto;
     padding: 20;
     border: 1px solid #888;
-    width: 80%;
+    height:400px;
+    width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;

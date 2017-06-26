@@ -1,29 +1,46 @@
 <template name="modalEdit">
-<!-- The Modal -->
+
 <div id="myModal" class="modal">
-
-  <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Titre</p>
-      <input type="hidden" name="_id" value={{currentSource._id}} />
-      <input type="hidden" name="media_id" value={{currentSource.media_id}} />
+    <div class="modal-header">
+      <span class="close-modal-event close-modal-cross">&times;</span>
+      <h3>{{currentSource.titre}}</h3>
+    </div>
+    <div class="modal-body">
+        <div id="boiteImage">
+          <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
+        </div>
+        <div id="boiteLegende">
+            <input type="hidden" name="_id" value={{currentSource._id}} />
+            <input type="hidden" name="media_id" value={{currentSource.media_id}} />
 
-      <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
-      <label>Auteur</label>
-      <input type="text" name="author" value={{currentSource.author}} />
-      <label>Titre</label>
-      <input type="text" name="titre" value={{currentSource.titre}} />
-      <label>Date</label>
-      <input type="text" name="date" value={{currentSource.date}} />
-      <label>Lieu</label>
-      <input type="text" name="lieu" value={{currentSource.lieu}} />
 
-      <button id="addDataToSource">Valider</button>
-      <a href="#" class="close">Annuler</a>
+            <label for="auteur">Auteur
+            <input id="auteur" type="text" name="author" value={{currentSource.author}} />
+            </label>
+            <br />
+            <label for="titre">Titre
+            <input id="titre" type="text" name="titre" value={{currentSource.titre}} />
+            </label>
+            <br />
+            <label>Date
+            <input type="text" name="date" value={{currentSource.date}} />
+            </label>
+            <br />
+            <label>Lieu
+            <input type="text" name="lieu" value={{currentSource.lieu}} />
+            </label>
+        </div>
+      </div>
+    <div class="modal-footer">
+        <div class="modal-actions">
+          <button id="addDataToSource">Valider</button>
+          <a href="#" class="close-modal-event close-modal-button">Annuler</a>
+        </div>
+    </div>
   </div>
-
 </div>
+
 </template>
 
 

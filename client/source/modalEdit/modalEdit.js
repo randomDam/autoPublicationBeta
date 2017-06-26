@@ -12,7 +12,7 @@ Template.modalEdit.helpers({
 });
 
 Template.modalEdit.events({
-    "click .close": function(event, template){
+    "click .close-modal-event": function(event, template){
       //Blaze.remove(Template.instance().view);
         var modal = document.getElementById("myModal")
         modal.style.display = "none"
@@ -25,7 +25,9 @@ Template.modalEdit.events({
       delete source._id
       console.log(source)
       Sources.update({_id:id},{$set:source})
-      Blaze.remove(Template.instance().view);
+      //Blaze.remove(Template.instance().view);
+      var modal = document.getElementById("myModal")
+      modal.style.display = "none"
     }
 
 });
