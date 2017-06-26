@@ -103,11 +103,10 @@
 .bouton h3{
   color: rgba(230, 65, 28,1);
   height: 30px;
-  width: 120px;
   padding : 0px;
   border:0;
   display: block;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .bouton:hover h3{
