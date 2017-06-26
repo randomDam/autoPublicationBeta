@@ -1,7 +1,9 @@
 
 Template.modalEdit.helpers({
     getPathById: function(_id){
-        return Medias.findOne({"_id":_id}).link();
+        var media = Medias.findOne({"_id":_id})
+        if(media) return media.link()
+        return ""
     },
     currentSource : function(){
       var currentSourceId = Session.get("currentSourceId");

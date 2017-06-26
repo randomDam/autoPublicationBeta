@@ -6,12 +6,12 @@ import './main.html';
 Session.setDefault("MODE", "bob")
 
 function populate(){
-  Pages.remove({})
-  _.each(Sources.find().fetch(), function(d){
-    Pages.insert({position: index, sources:[d]})
-    index++;
-    console.log(d)
-  })
+  //Pages.remove({})
+    Meteor.call("remove-pages", function(err,res){
+      console.log(err, res)
+    
+    
+    })
 
 
 }

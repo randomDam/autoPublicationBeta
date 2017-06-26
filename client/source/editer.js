@@ -1,5 +1,5 @@
 //Sources = new Mongo.Collection(null)
-Pages = new Mongo.Collection(null)
+//Pages = new Mongo.Collection("pages-sources")
 
 
 index = 0

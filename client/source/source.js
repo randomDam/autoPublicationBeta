@@ -106,7 +106,6 @@ upLoadFonction = function(file) {
             chunkSize: 'dynamic'
         }, false);
 
-
         uploadInstance.on('start', function() {
             templateUp.currentUpload.set(this);
         });

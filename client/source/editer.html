@@ -21,7 +21,7 @@
     {{position}}
     <span class="remove-page">[X]</span>
     {{#each sources}}
-    <div id="{{_id}}" draggable=true class="source">
+    <div id="{{this}}" draggable=true class="source">
       {{#if isImage _id}}
       <img id="{{_id}}" class="source" draggable=true src="{{source_content _id}}" />
       {{/if}}
