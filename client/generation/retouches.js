@@ -59,6 +59,14 @@ Template.retouches.helpers({
   },
     getLink:function(_id){
         Medias.findOne({_id:_id}).link();
-    }
+    },
+  sourcesContent : function(){
+    console.log(this)
+      sources = []
+    _.each(this.sources, function(s){
+      sources.push(s.source_id);
+    })  
+    return Sources.find({_id: {$in:sources}})
+  }
 
 })

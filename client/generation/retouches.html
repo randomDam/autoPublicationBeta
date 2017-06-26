@@ -14,12 +14,12 @@
         <div id="retouches-container">
             {{#each pages}}
                 <div class="page">
-                  {{#each sources}}
-                    <div id="{{source_id}}" class="source element">
-                      {{#if isImage source_id}}
-                        {{content}}
+                  {{#each sourcesContent}}
+                    <div id="{{_id}}" class="source element">
+                      {{#if isImage _id}}
+                        {{source_content _id}}
                       {{/if}}
-                      {{#if isText source_id}}
+                      {{#if isText _id}}
                       {{content}}
                       {{/if}}
                     </div>
