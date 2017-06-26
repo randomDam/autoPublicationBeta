@@ -7,9 +7,16 @@
       <h3>{{currentSource.titre}}</h3>
     </div>
     <div class="modal-body">
+        {{#if isImage currentSource._id}}
         <div id="boiteImage">
           <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
         </div>
+        {{/if}}
+        {{#if isText currentSource._id}}
+        <div id="boiteImage">
+          <p>Plain text...</p>
+        </div>
+        {{/if}}
         <div id="boiteLegende">
             <input type="hidden" name="_id" value={{currentSource._id}} />
             <input type="hidden" name="media_id" value={{currentSource.media_id}} />
