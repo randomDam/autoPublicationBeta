@@ -27,7 +27,7 @@ Template.body.onRendered(function(){
     var data = result.svg.g;
     var index = 0;
     _.each(data, function(layer){
-      console.log(index, layer);
+      console.log(index, layer.$["inkscape:label"]);
       index++;
     });
 
@@ -36,35 +36,14 @@ Template.body.onRendered(function(){
     var o = {
       "h" : {
         "1" : [data[1].rect[0].$,data[2].rect[0].$,data[3].rect[0].$,data[4].rect[0].$],
-        "2" : []
+        "2" : [[data[8].rect[0].$,data[8].rect[1].$],[data[9].rect[0].$,data[9].rect[1].$],]
       },
       "v" : {
         "1" : [data[5].rect[0].$],
-        "2" : [[data[6].rect[0].$,data[6].rect[1].$],[data[7].rect[0].$,data[7].rect[1].$],[data[8].rect[0].$,data[8].rect[1].$],[data[9].rect[0].$,data[9].rect[1].$]]
+        "2" : [[data[6].rect[0].$,data[6].rect[1].$],[data[7].rect[0].$,data[7].rect[1].$]]
       }
     }
     console.log(o);
-
-    /*
-    for(i=1 ; i < 5 ; i++){
-      var d = data[i].rect[0].$;
-      d.x = parseFloat(d.x);
-      d.y = parseFloat(d.y);
-      d.width = parseFloat(d.width);
-      d.height = parseFloat(d.height);
-      o.h["1"][i-1] = d
-    }
-
-    for(i=1 ; i < 5 ; i++){
-      var d = data[i].rect[0].$;
-      d.x = parseFloat(d.x);
-      d.y = parseFloat(d.y);
-      d.width = parseFloat(d.width);
-      d.height = parseFloat(d.height);
-      o.v["2"][i-6] = d
-    }
-    */
-
     svgGabarit.set(o);
   });
 
