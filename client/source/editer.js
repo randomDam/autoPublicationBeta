@@ -19,6 +19,13 @@ Template.grid.helpers({
     var media = Medias.findOne({_id:source.media_id})
     //return media.link()
     return source.content
+  },
+  source_content1(id){
+    //return Sources.findOne(id)._id
+    var source = Sources.findOne(id)
+    var media = Medias.findOne({_id:source.media_id})
+    //return media.link()
+    return source.rawData
   }
 })
 

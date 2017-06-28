@@ -7,7 +7,9 @@
   "dependencies": {
     "babel-runtime": "^6.18.0",
     "draggabilly": "^2.1.1",
+    "js2xmlparser": "^3.0.0",
     "meteor-node-stubs": "~0.2.0",
-    "packery": "^2.1.1"
+    "packery": "^2.1.1",
+    "xml2json": "^0.11.0"
   }
 }

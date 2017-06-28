@@ -66,3 +66,13 @@
     border-style: solid;
     border-color: rgba(0, 0, 0,0.5);
 }
+
+#pdfV {
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}

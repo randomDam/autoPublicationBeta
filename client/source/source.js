@@ -103,6 +103,7 @@ upLoadFonction = function(file) {
     if (file) {
         var uploadInstance = Medias.insert({
             file: file,
+            //isBase64: true,
             streams: 'dynamic',
             chunkSize: 'dynamic'
         }, false);
