@@ -59,7 +59,7 @@ data = new ReactiveVar([])
 Template.generation.events({
   'click .myButton': function() {
     var pagesCount = Pages.find().count();
-    var pages = Pages.find().map(function(page,indexPage){
+    var pages = Pages.find({},{sort: {position: 1}}).map(function(page,indexPage){
       var nbSources = page.sources.length;
 
       var orientation = ""
@@ -68,19 +68,20 @@ Template.generation.events({
       else orientation = "h";
 
       var gabarit = svgGabarit.get();
-      console.log(orientation, gabarit)
       var p = [];
 
       if(nbSources == 1){
         // Une seule source sur cette page
         var r = Math.floor((Math.random() * gabarit[orientation][1].length ))
         p.push(gabarit[orientation][1][r]);    
+        console.log("1", p);
       }
       if(nbSources == 2){
         // Deux sources sur cette page
         var r = Math.floor((Math.random() * gabarit[orientation][2].length))
         p.push(gabarit[orientation][2][r][0]);    
         p.push(gabarit[orientation][2][r][1]);    
+        console.log("2", p);
       }
 
       sources = Pages.rawData(page._id).map(function(s,i){
@@ -99,7 +100,7 @@ Template.generation.events({
       } else {
         if(indexPage < pagesCount) b = "after";
         else b = "";
-        return [ sources , {text: page._id, pageBreak: b} ]
+        return [ sources , {text: page._id, pageBreak: "after"} ]
       }
     });
     
