@@ -20,7 +20,6 @@ function populate(){
 
 }
 
-svgGabarit = new ReactiveVar(null)
 
 Template.body.onRendered(function(){
   console.log("Hello from body...");

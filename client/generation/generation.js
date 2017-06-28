@@ -59,14 +59,9 @@ data = new ReactiveVar([])
 Template.generation.events({
   'click .myButton': function() {
 
-    //p.push(svgGabarit.get().v[2][2]);
-    //p.push(svgGabarit.get().v[2][1]);
-    
-    
     var pages = Pages.find().map(function(page){
       var p = [];
       var nbSources = page.sources.length;
-      console.log(nbSources);
       if(nbSources == 1){
         // Une seule source sur cette page
         var r = Math.floor((Math.random() * 3))
@@ -79,7 +74,6 @@ Template.generation.events({
         p.push(svgGabarit.get().v[2][r][1]);    
       }
       sources = Pages.rawData(page._id).map(function(s,i){
-        console.log(p)
         x = parseFloat(p[i].x);
         y = parseFloat(p[i].y-p[i].height);
         w = parseFloat(p[i].width);
