@@ -3,6 +3,10 @@
 
 }
 
+#sort-actions {
+  margin-left:100px;
+}
+
 
 .newpage {
   position:fixed;
@@ -66,17 +70,19 @@
   margin-top:10px;
 }
 .source .edit{
-    background-color: rgba(255,200,255,1);
-    font-family: sans-serif;
-    font-size: 15px;
+	  font-family: 'WorkSans-Bold';
+    //background-color: rgba(255,200,255,1);
+    font-size: 12px;
     cursor: pointer;
     float:right;
     z-index:10000;
     margin-top:-10px;
+    padding: 4px;
+    color:rgb(230,65,28);
 }
 
 .source .edit:hover{
-    background-color: rgb(255, 0, 0);
+    color: black;
 }
 
 .source .edit p{
