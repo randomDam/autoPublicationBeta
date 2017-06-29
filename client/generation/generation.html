@@ -1,7 +1,7 @@
 <template name="generation">
   {{! retouches}}
-  <button class="myButton"> GO </button><br />
-  <button class="myButton1"> GO1 </button>
+  {{> stats }}
+  <button class="myButton"> Valider </button><br />
     <!--
     <div id="page1">
         <div class="A4">
@@ -10,4 +10,11 @@
     </div>
     -->
     <iframe id="pdfV"></iframe>
+</template>
+
+<template name="stats">
+<div class="stats">
+<p>{{nbPage}} pages.</p>
+<p>{{nbSources}} sources.</p>
+</div>
 </template>

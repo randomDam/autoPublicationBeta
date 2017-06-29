@@ -34,6 +34,15 @@ Template.generation.onRendered(function(){
 
 })
 
+Template.stats.helpers({
+  nbPage(){
+    return Pages.find().count() +1;
+  },
+  nbSources(){
+  
+    return Sources.find().count();
+  }
+});
 
 
 
@@ -46,13 +55,6 @@ Template.generation.helpers({
 
 
 })
-/*
-   {
-         // if you specify width, image will scale proportionally
-         //       image: 'data:image/jpeg;base64,...encodedContent...',
-         //             width: 150
-         //                 },
-*/
 
 data = new ReactiveVar([])
 
@@ -120,8 +122,9 @@ Template.generation.events({
     };
 
     // Start the pdf-generation process
-    //pdfMake.createPdf(docDefinition).open();
+    //pdfMake.createPdf(doc).open();
     //docDefinition.set(doc)
+
     pdfMake.createPdf(doc).getDataUrl(function(outDoc) {
       document.getElementById('pdfV').src = outDoc;
     });
