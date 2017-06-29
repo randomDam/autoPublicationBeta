@@ -9,7 +9,7 @@
     <div class="modal-body">
         {{#if isImage currentSource._id}}
         <div id="boiteImage">
-          <img src="{{getPathById currentSource.media_id}}" alt="" height="300px"/>
+          <img src="{{getPathById currentSource._id}}" alt="" height="300px"/>
         </div>
         {{/if}}
         {{#if isText currentSource._id}}

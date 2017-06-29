@@ -1,8 +1,8 @@
 
 Template.modalEdit.helpers({
     getPathById: function(_id){
-        var media = Medias.findOne({"_id":_id})
-        if(media) return media.link()
+        var source = Sources.findOne({"_id":_id})
+        if(source) return source.rawData
         return ""
     },
     currentSource : function(){
