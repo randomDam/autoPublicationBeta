@@ -57,6 +57,14 @@ Template.generation.helpers({
 data = new ReactiveVar([])
 
 Template.generation.events({
+  'click .myButton1' : function(){
+    Meteor.call("getPdfData", function(error, result){
+      pdfMake.createPdf(result).getDataUrl(function(outDoc) {
+        document.getElementById('pdfV').src = outDoc;
+      });
+    
+    })
+  },
   'click .myButton': function() {
     var pagesCount = Pages.find().count();
     var pages = Pages.find({},{sort: {position: 1}}).map(function(page,indexPage){
@@ -94,13 +102,13 @@ Template.generation.events({
           image: s.rawData , absolutePosition: {x:x, y: y}, fit:[w,h] //width : w, height : h //, absolutePosition:[200,500] //s.content
         }
       })
-      if(sources.length == 0){
-        return [ {text: page._id, pageBreak: 'after'} ]
+      if(sources.length <= 0){
+        return [ {text: "", pageBreak: 'after'} ]
       
       } else {
         if(indexPage < pagesCount) b = "after";
         else b = "";
-        return [ sources , {text: page._id, pageBreak: "after"} ]
+        return [ sources , {text: "", pageBreak: b} ]
       }
     });
     

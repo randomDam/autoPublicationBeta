@@ -31,10 +31,16 @@ Template.grid.helpers({
 
 Template.grid.events({
   "click .remove-page" : function(){
-    if(this.sources.length === 0){
+    //if(this.sources.length === 0){
+      _.each(this.sources, function(source_id){
+        console.log(source_id);
+        var source = Sources.findOne(source_id.source_id);
+        Medias.remove(source.media_id);
+        Sources.remove(source_id.source_id) 
+      })
       Pages.remove(this._id)
       renumerotation(this.position-1)
-    }
+    //}
   },
   "click button" : function(){
     Pages.insert({position:Pages.find().count()+1, sources:[]})
