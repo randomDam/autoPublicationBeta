@@ -30,6 +30,38 @@ Template.grid.helpers({
 })
 
 Template.grid.events({
+  "click #sortByDate" : function(){
+    Meteor.call("remove-pages", function(){
+      var sources = Sources.find({},{sort:{date:1}}).fetch();
+      _.each(sources, function(source, indexPage){
+        Pages.insert({position:indexPage, sources:[{source_id:source._id}]});
+      }); 
+    }) 
+  },
+  "click #sortByAuteur" : function(){
+    Meteor.call("remove-pages", function(){
+      var sources = Sources.find({},{sort:{auteur:1}}).fetch();
+      _.each(sources, function(source, indexPage){
+        Pages.insert({position:indexPage, sources:[{source_id:source._id}]});
+      }); 
+    }) 
+  },
+  "click #sortByLieu" : function(){
+    Meteor.call("remove-pages", function(){
+      var sources = Sources.find({},{sort:{lieu:1}}).fetch();
+      _.each(sources, function(source, indexPage){
+        Pages.insert({position:indexPage, sources:[{source_id:source._id}]});
+      }); 
+    }) 
+  },
+  "click #sortByTitre" : function(){
+    Meteor.call("remove-pages", function(){
+      var sources = Sources.find({},{sort:{titre:1}}).fetch();
+      _.each(sources, function(source, indexPage){
+        Pages.insert({position:indexPage, sources:[{source_id:source._id}]});
+      }); 
+    }) 
+  },
   "click .remove-page" : function(){
     //if(this.sources.length === 0){
       _.each(this.sources, function(source_id){
@@ -41,9 +73,6 @@ Template.grid.events({
       Pages.remove(this._id)
       renumerotation(this.position-1)
     //}
-  },
-  "click button" : function(){
-    Pages.insert({position:Pages.find().count()+1, sources:[]})
   },
   "dragover .page" : function(e,t){
     e.preventDefault()

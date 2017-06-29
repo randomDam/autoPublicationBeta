@@ -6,7 +6,7 @@ svgGabarit = new ReactiveVar(null)
 
 index = 0
 Meteor.methods({
-  "remove-pages" : function(){ },
+  "remove-pages" : function(){Pages.remove({}); },
   "getRawImageData" : function(url){
     var result = request.getSync(url, {encoding: null});
     return result;

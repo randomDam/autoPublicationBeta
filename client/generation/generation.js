@@ -83,8 +83,8 @@ Template.generation.events({
       if(nbSources == 1){
         // Une seule source sur cette page
         var r = Math.floor((Math.random() * gabarit[orientation][1].length ))
-        p.push(gabarit[orientation][1][r]);    
-        console.log("1", p);
+        p.push(gabarit["h"][1][r]);    
+        console.log("1", orientation, p);
       }
       if(nbSources == 2){
         // Deux sources sur cette page
@@ -95,10 +95,10 @@ Template.generation.events({
       }
 
       sources = Pages.rawData(page._id).map(function(s,i){
-        x = parseFloat(p[i].x);
-        y = parseFloat(p[i].y-p[i].height);
-        w = parseFloat(p[i].width);
-        h = parseFloat(p[i].height);
+        x = Math.abs(parseFloat(p[i].x));
+        y = Math.abs(parseFloat(p[i].y-p[i].height));
+        w = Math.abs(parseFloat(p[i].width));
+        h = Math.abs(parseFloat(p[i].height));
 
         return {
           image: s.rawData , absolutePosition: {x:x, y: y}, fit:[w,h] //width : w, height : h //, absolutePosition:[200,500] //s.content
@@ -118,6 +118,12 @@ Template.generation.events({
     // Define the pdf-document
     var doc = {
       pageSize : {width:567, height:794},
+      compress: false,
+      // footer: function(currentPage, pageCount) { return currentPage.toString() + ' de ' + pageCount; },
+      // header: function(currentPage, pageCount) {
+      //   // you can apply any logic and return any valid pdfmake element
+      //   return { text: 'simple text', alignment: (currentPage % 2) ? 'left' : 'right' };
+      // },
       content: pages
     };
 
